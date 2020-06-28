@@ -1,10 +1,11 @@
-package com.fluffybros.tujefe
+package com.fluffybros.tujefe.ui.home
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.fluffybros.tujefe.R
 import kotlinx.android.synthetic.main.home_recycler_item.view.*
 
 class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>) : RecyclerView.Adapter<HomeRecyclerAdapter.HomeViewHolder>() {
@@ -19,7 +20,9 @@ class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>) : Recycl
             parent, false
         )
 
-        return HomeViewHolder(itemView)
+        return HomeViewHolder(
+            itemView
+        )
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {

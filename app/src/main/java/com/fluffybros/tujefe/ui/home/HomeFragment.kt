@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.fluffybros.tujefe.HomeRecyclerAdapter
-import com.fluffybros.tujefe.HomeRecyclerItem
 import com.fluffybros.tujefe.R
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -29,14 +27,19 @@ class HomeFragment : Fragment() {
         val exampleList = generateHomeRecyclerItems()
         recycler_home.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = HomeRecyclerAdapter(exampleList)
+            adapter =
+                HomeRecyclerAdapter(exampleList)
         }
     }
 
     private fun generateHomeRecyclerItems(): List<HomeRecyclerItem> {
         val list = ArrayList<HomeRecyclerItem>()
         for (i in 0 until 100) {
-            val item = HomeRecyclerItem(i, "Account $i", "000-000")
+            val item = HomeRecyclerItem(
+                i,
+                "Account $i",
+                "000-000"
+            )
             list += item
         }
         return list
