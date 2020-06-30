@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/acc_name"
+            android:id="@+id/accName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -19,38 +19,38 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:text="@string/acc_name"
-            app:layout_constraintBottom_toTopOf="@+id/edit_acc_button"
+            app:layout_constraintBottom_toTopOf="@+id/editAccButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/acc_code"
+            app:layout_constraintStart_toStartOf="@+id/accCode"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed">
 
         </TextView>
 
         <TextView
-            android:id="@+id/acc_code"
+            android:id="@+id/accCode"
             android:layout_width="52dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/acc_code"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/copy_code_button">
+            app:layout_constraintTop_toTopOf="@+id/copyCodeButton">
 
         </TextView>
 
         <Button
-            android:id="@+id/copy_code_button"
+            android:id="@+id/copyCodeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:text="@string/copy"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/edit_acc_button"
-            app:layout_constraintTop_toTopOf="@+id/edit_acc_button" />
+            app:layout_constraintEnd_toStartOf="@+id/editAccButton"
+            app:layout_constraintTop_toTopOf="@+id/editAccButton" />
 
         <Button
-            android:id="@+id/edit_acc_button"
+            android:id="@+id/editAccButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
