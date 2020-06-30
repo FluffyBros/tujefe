@@ -30,12 +30,13 @@ class HomeFragment : Fragment() {
         val exampleList = generateHomeRecyclerItems()
         recycler_home.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter =
-                HomeRecyclerAdapter(exampleList)
+            adapter = HomeRecyclerAdapter(exampleList)
         }
     }
 
     private fun generateHomeRecyclerItems(): List<HomeRecyclerItem> {
+        //This is a dummy list
+        // TODO: Replace with functionality for retrieving items from a database
         val list = ArrayList<HomeRecyclerItem>()
         for (i in 0 until 100) {
             val item = HomeRecyclerItem(
