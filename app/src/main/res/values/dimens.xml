@@ -1,2 +1,3 @@
 <resources>
+    <dimen name="recycler_item_margin">8dp</dimen>
 </resources>
