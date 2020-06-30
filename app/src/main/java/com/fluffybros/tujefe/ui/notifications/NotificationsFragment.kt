@@ -1,34 +1,28 @@
 package com.fluffybros.tujefe.ui.notifications
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.fluffybros.tujefe.R
+import com.fluffybros.tujefe.databinding.FragmentNotificationsBinding
 
-class NotificationsFragment : Fragment() {
+class NotificationsFragment : Fragment(R.layout.fragment_notifications) {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
+    private val notificationsViewModel: NotificationsViewModel by lazy {
+        ViewModelProvider(this).get(NotificationsViewModel::class.java)
+    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val binding = FragmentNotificationsBinding.bind(view)
+
         notificationsViewModel.text.observe(
             viewLifecycleOwner,
             Observer {
-                textView.text = it
+                binding.textNotifications.text = it
             }
         )
-        return root
     }
 }
