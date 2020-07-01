@@ -2,7 +2,6 @@ package com.fluffybros.tujefe.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.fluffybros.tujefe.databinding.HomeRecyclerItemBinding
 
@@ -10,8 +9,7 @@ class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>) : Recycl
 
     private lateinit var binding: HomeRecyclerItemBinding
 
-    class HomeViewHolder(val binding: HomeRecyclerItemBinding) : RecyclerView.ViewHolder(binding.root) {
-    }
+    class HomeViewHolder(val binding: HomeRecyclerItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         binding = HomeRecyclerItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
