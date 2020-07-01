@@ -1,35 +1,28 @@
 package com.fluffybros.tujefe.ui.home
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.fluffybros.tujefe.R
-import kotlinx.android.synthetic.main.home_recycler_item.view.*
+import com.fluffybros.tujefe.databinding.HomeRecyclerItemBinding
 
 class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>) : RecyclerView.Adapter<HomeRecyclerAdapter.HomeViewHolder>() {
-    class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val accNameView: TextView = itemView.accName
-        val accCodeView: TextView = itemView.accCode
+
+    private lateinit var binding: HomeRecyclerItemBinding
+
+    class HomeViewHolder(val binding: HomeRecyclerItemBinding) : RecyclerView.ViewHolder(binding.root) {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.home_recycler_item,
-            parent, false
-        )
+        binding = HomeRecyclerItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-        return HomeViewHolder(
-            itemView
-        )
+        return HomeViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val currentItem = itemList[position]
-
-        holder.accCodeView.text = currentItem.accCode
-        holder.accNameView.text = currentItem.accName
+        holder.binding.accCode.text = currentItem.accCode
+        holder.binding.accName.text = currentItem.accName
     }
 
     override fun getItemCount(): Int {
