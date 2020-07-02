@@ -9,7 +9,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_home"
-        android:padding="5dp"
+        android:padding="@dimen/recycler_view_padding"
         android:clipToPadding="false"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,9 +23,9 @@
         android:src="@android:drawable/ic_input_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="@dimen/floating_button_horizontal_bias"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
+        app:layout_constraintVertical_bias="@dimen/floating_button_vertical_bias" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
