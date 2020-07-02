@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fluffybros.tujefe.databinding.FragmentHomeBinding
@@ -27,7 +26,16 @@ class HomeFragment : Fragment() {
         binding.floatingActionButton.setOnClickListener {
             // This is a dummy listener
             // TODO: Replace with functionality for adding an account
-            Toast.makeText(activity?.applicationContext, "this is toast message", Toast.LENGTH_SHORT).show()
+            when(binding.addKeyButton.visibility) {
+                View.INVISIBLE -> {
+                    binding.addKeyButton.visibility = View.VISIBLE
+                    binding.addQrButton.visibility = View.VISIBLE
+                }
+                View.VISIBLE -> {
+                    binding.addKeyButton.visibility = View.INVISIBLE
+                    binding.addQrButton.visibility = View.INVISIBLE
+                }
+            }
         }
     }
 
