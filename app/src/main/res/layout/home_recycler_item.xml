@@ -36,7 +36,7 @@
         android:layout_marginBottom="@dimen/recycler_item_margin"
         android:layout_marginEnd="@dimen/recycler_item_margin"
         android:layout_width="wrap_content"
-        android:text="@string/copy"
+        android:text="@string/copy_button_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/editAccButton"
         app:layout_constraintTop_toTopOf="@+id/editAccButton" />
@@ -47,7 +47,7 @@
         android:layout_marginBottom="@dimen/recycler_item_margin"
         android:layout_marginEnd="@dimen/recycler_item_margin"
         android:layout_width="wrap_content"
-        android:text="@string/edit"
+        android:text="@string/edit_button_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
