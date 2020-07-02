@@ -24,10 +24,10 @@ class HomeFragment : Fragment() {
             layoutManager = LinearLayoutManager(activity)
             adapter = HomeRecyclerAdapter(exampleList)
         }
-        binding.floatingActionButton.setOnClickListener{
+        binding.floatingActionButton.setOnClickListener {
             // This is a dummy listener
             // TODO: Replace with functionality for adding an account
-            Toast.makeText(activity?.applicationContext,"this is toast message",Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity?.applicationContext, "this is toast message", Toast.LENGTH_SHORT).show()
         }
     }
 
