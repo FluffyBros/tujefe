@@ -26,7 +26,7 @@ class HomeFragment : Fragment() {
         binding.floatingActionButton.setOnClickListener {
             // This is a dummy listener
             // TODO: Replace with functionality for adding an account
-            when(binding.addKeyButton.visibility) {
+            when (binding.addKeyButton.visibility) {
                 View.INVISIBLE -> {
                     binding.addKeyButton.visibility = View.VISIBLE
                     binding.addQrButton.visibility = View.VISIBLE
