@@ -24,8 +24,8 @@ class HomeFragment : Fragment() {
             adapter = HomeRecyclerAdapter(exampleList)
         }
         binding.floatingActionButton.setOnClickListener {
-            // This is a dummy listener
-            // TODO: Replace with functionality for adding an account
+            // This listener is incomplete
+            // TODO: Add functionality for adding an account
             when (binding.addKeyButton.visibility) {
                 View.INVISIBLE -> {
                     binding.addKeyButton.visibility = View.VISIBLE
