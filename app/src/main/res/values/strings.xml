@@ -7,6 +7,6 @@
     <string name="acc_code">000&#8211;000</string>
     <string name="copy_button_text">Copy</string>
     <string name="edit_button_text">Edit</string>
-    <string name="setup_key_button_text">Setup Key</string>
+    <string name="setup_key_button_text">Manual</string>
     <string name="QR_button_text">QR Code</string>
 </resources>
