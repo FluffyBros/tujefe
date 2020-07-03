@@ -4,4 +4,5 @@
     <dimen name="floating_button_vertical_bias">0.85</dimen>
     <dimen name="recycler_view_padding">5dp</dimen>
     <dimen name="floating_buttons_padding">16dp</dimen>
+    <dimen name="floating_buttons_width">55dp</dimen>
 </resources>

@@ -32,7 +32,7 @@
 
     <Button
         android:id="@+id/add_key_button"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/floating_buttons_width"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/floating_buttons_padding"
         android:drawableStart="@android:drawable/ic_menu_manage"
@@ -42,7 +42,7 @@
 
     <Button
         android:id="@+id/add_qr_button"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/floating_buttons_width"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/floating_buttons_padding"
         android:drawableStart="@android:drawable/ic_menu_camera"
