@@ -3,8 +3,8 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="acc_name">Account</string>
-    <string name="acc_code">000&#8211;000</string>
+    <string name="name">Account</string>
+    <string name="code">000&#8211;000</string>
     <string name="copy">Copy</string>
     <string name="edit">Edit</string>
 </resources>

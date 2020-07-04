@@ -17,8 +17,8 @@ class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>) : Recycl
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val currentItem = itemList[position]
-        holder.binding.accCode.text = currentItem.code
-        holder.binding.accName.text = currentItem.name
+        holder.binding.code.text = currentItem.code
+        holder.binding.name.text = currentItem.name
     }
 
     override fun getItemCount(): Int {
