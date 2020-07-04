@@ -7,12 +7,10 @@ import com.fluffybros.tujefe.databinding.HomeRecyclerItemBinding
 
 class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>) : RecyclerView.Adapter<HomeRecyclerAdapter.HomeViewHolder>() {
 
-    private lateinit var binding: HomeRecyclerItemBinding
-
     class HomeViewHolder(val binding: HomeRecyclerItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-        binding = HomeRecyclerItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = HomeRecyclerItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
         return HomeViewHolder(binding)
     }
