@@ -1,34 +1,36 @@
 package com.fluffybros.tujefe.ui.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.fluffybros.tujefe.R
+import com.fluffybros.tujefe.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    private lateinit var homeViewModel: HomeViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val exampleList = generateHomeRecyclerItems()
+        val binding = FragmentHomeBinding.bind(view)
+        binding.recyclerHome.apply {
+            layoutManager = LinearLayoutManager(activity)
+            adapter = HomeRecyclerAdapter(exampleList)
+        }
+    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(
-            viewLifecycleOwner,
-            Observer {
-                textView.text = it
-            }
-        )
-        return root
+    private fun generateHomeRecyclerItems(): List<HomeRecyclerItem> {
+        // This is a dummy list
+        // TODO: Replace with functionality for retrieving items from a database
+        val list = ArrayList<HomeRecyclerItem>()
+        for (i in 0 until 100) {
+            val item = HomeRecyclerItem(
+                i,
+                "Account $i",
+                "000-000"
+            )
+            list += item
+        }
+        return list
     }
 }
