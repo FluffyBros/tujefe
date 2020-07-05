@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.fluffybros.tujefe.R
 import com.fluffybros.tujefe.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -36,6 +38,9 @@ class HomeFragment : Fragment() {
                     binding.addQrButton.visibility = View.INVISIBLE
                 }
             }
+        }
+        binding.addKeyButton.setOnClickListener {
+            findNavController().navigate(R.id.navigation_manual_add)
         }
     }
 

@@ -22,4 +22,11 @@
         android:name="com.fluffybros.tujefe.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_manual_add"
+        android:label="@string/title_manual_add"
+        android:name="com.fluffybros.tujefe.ui.add.ManualAddFragment"
+        tools:layout="@layout/fragment_notifications" />
+
 </navigation>
