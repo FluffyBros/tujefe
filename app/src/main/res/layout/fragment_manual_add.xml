@@ -9,6 +9,7 @@
         android:id="@+id/nameField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/manual_add_form_padding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,6 +22,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/setupKeyField"
+        android:layout_margin="@dimen/manual_add_form_padding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@+id/nameField"
@@ -37,9 +39,9 @@
         android:id="@+id/manualAddButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/manual_add_form_padding"
+        android:layout_marginEnd="@dimen/manual_add_form_padding"
         android:text="@string/manual_add_button"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/setupKeyField" />
 </androidx.constraintlayout.widget.ConstraintLayout>
