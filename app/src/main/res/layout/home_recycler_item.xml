@@ -16,7 +16,6 @@
         app:layout_constraintStart_toStartOf="@+id/code"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed">
-
     </TextView>
 
     <TextView
@@ -27,7 +26,6 @@
         android:text="@string/code"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/copyCodeButton">
-
     </TextView>
 
     <Button

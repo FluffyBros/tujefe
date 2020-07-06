@@ -11,7 +11,6 @@ class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>) : Recycl
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         val binding = HomeRecyclerItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-
         return HomeViewHolder(binding)
     }
 
