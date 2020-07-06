@@ -12,4 +12,5 @@
     <string name="code">000&#8211;000</string>
     <string name="copy">Copy</string>
     <string name="edit">Edit</string>
+    <string name="name_field">Account Name</string>
 </resources>
