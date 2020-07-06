@@ -20,16 +20,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.floatingActionButton.setOnClickListener {
             // This listener is incomplete
             // TODO: Add functionality for adding an account
-            when (binding.addKeyButton.visibility) {
-                View.INVISIBLE -> {
-                    binding.addKeyButton.visibility = View.VISIBLE
-                    binding.addQrButton.visibility = View.VISIBLE
-                }
-                View.VISIBLE -> {
-                    binding.addKeyButton.visibility = View.INVISIBLE
-                    binding.addQrButton.visibility = View.INVISIBLE
-                }
-            }
+            val isVisible = binding.addKeyButton.visibility == View.VISIBLE
+            val newVisibility = if (isVisible) View.INVISIBLE else View.VISIBLE
+            binding.addKeyButton.visibility = newVisibility
+            binding.addQrButton.visibility = newVisibility
         }
     }
 
