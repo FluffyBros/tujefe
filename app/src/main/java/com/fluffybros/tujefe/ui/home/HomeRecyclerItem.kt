@@ -1,3 +1,3 @@
 package com.fluffybros.tujefe.ui.home
 
-data class HomeRecyclerItem(val accId: Int, var accName: String, var accCode: String)
+data class HomeRecyclerItem(val id: Int, var name: String, var code: String)

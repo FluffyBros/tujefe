@@ -3,14 +3,13 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="acc_name">Account</string>
-    <string name="acc_code">000&#8211;000</string>
     <string name="copy_button_text">Copy</string>
     <string name="edit_button_text">Edit</string>
-    <string name="acc_name_field">Account Name</string>
     <string name="setup_key_field">Setup Key</string>
     <string name="manual_add_button">Add</string>
     <string name="title_manual_add">Add Manually</string>
-    <!--<string name="setup_key_button_text">Manual</string>
-    <string name="QR_button_text">QR Code</string>-->
+    <string name="name">Account</string>
+    <string name="code">000&#8211;000</string>
+    <string name="copy">Copy</string>
+    <string name="edit">Edit</string>
 </resources>

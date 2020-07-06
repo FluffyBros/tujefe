@@ -6,28 +6,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/accName"
+        android:id="@+id/name"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/recycler_item_margin"
         android:layout_width="match_parent"
-        android:text="@string/acc_name"
-        app:layout_constraintBottom_toTopOf="@+id/editAccButton"
+        android:text="@string/name"
+        app:layout_constraintBottom_toTopOf="@+id/editButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/accCode"
+        app:layout_constraintStart_toStartOf="@+id/code"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed">
-
     </TextView>
 
     <TextView
-        android:id="@+id/accCode"
+        android:id="@+id/code"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/recycler_item_margin"
         android:layout_width="wrap_content"
-        android:text="@string/acc_code"
+        android:text="@string/code"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/copyCodeButton">
-
     </TextView>
 
     <Button
@@ -36,18 +34,18 @@
         android:layout_marginBottom="@dimen/recycler_item_margin"
         android:layout_marginEnd="@dimen/recycler_item_margin"
         android:layout_width="wrap_content"
-        android:text="@string/copy_button_text"
+        android:text="@string/copy"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/editAccButton"
-        app:layout_constraintTop_toTopOf="@+id/editAccButton" />
+        app:layout_constraintEnd_toStartOf="@+id/editButton"
+        app:layout_constraintTop_toTopOf="@+id/editButton" />
 
     <Button
-        android:id="@+id/editAccButton"
+        android:id="@+id/editButton"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/recycler_item_margin"
         android:layout_marginEnd="@dimen/recycler_item_margin"
         android:layout_width="wrap_content"
-        android:text="@string/edit_button_text"
+        android:text="@string/edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
