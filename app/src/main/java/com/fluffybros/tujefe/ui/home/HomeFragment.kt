@@ -3,6 +3,7 @@ package com.fluffybros.tujefe.ui.home
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,13 +19,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val exampleList = mainViewModel.homeList.value
         val binding = FragmentHomeBinding.bind(view)
-
         binding.recyclerHome.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = HomeRecyclerAdapter(exampleList?:ArrayList())
         }
+
+        mainViewModel.homeList.observe(
+            viewLifecycleOwner,
+            Observer {
+                list ->
+                binding.recyclerHome.adapter = HomeRecyclerAdapter(list)
+            }
+        )
+
         binding.floatingActionButton.setOnClickListener {
             // This listener is incomplete
             // TODO: Add functionality for adding an account

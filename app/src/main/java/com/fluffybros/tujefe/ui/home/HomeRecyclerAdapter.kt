@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.fluffybros.tujefe.databinding.HomeRecyclerItemBinding
 
-class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>) : RecyclerView.Adapter<HomeRecyclerAdapter.HomeViewHolder>() {
+class HomeRecyclerAdapter(private val itemList: ArrayList<HomeRecyclerItem>) : RecyclerView.Adapter<HomeRecyclerAdapter.HomeViewHolder>() {
 
     class HomeViewHolder(val binding: HomeRecyclerItemBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -15,7 +15,7 @@ class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>) : Recycl
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        val currentItem = itemList[position]
+        val currentItem = itemList.get(position)
         holder.binding.code.text = currentItem.code
         holder.binding.name.text = currentItem.name
     }
