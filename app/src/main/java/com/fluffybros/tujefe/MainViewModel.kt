@@ -12,6 +12,11 @@ class MainViewModel : ViewModel() {
 
     val homeList: LiveData<ArrayList<HomeRecyclerItem>> = _homeList
 
+    fun addRecyclerItem(name: String, code: String) {
+        val newItem = HomeRecyclerItem(_homeList.value?.size ?:0, name, code)
+        _homeList.value?.add(newItem)
+    }
+
     private fun generateHomeRecyclerItems(): ArrayList<HomeRecyclerItem> {
         // This is a dummy list
         // TODO: Replace with functionality for retrieving items from a database
