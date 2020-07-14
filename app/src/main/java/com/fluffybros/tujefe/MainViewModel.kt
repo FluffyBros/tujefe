@@ -7,7 +7,7 @@ import com.fluffybros.tujefe.ui.home.HomeRecyclerItem
 
 class MainViewModel : ViewModel() {
     private val _homeList = MutableLiveData<ArrayList<HomeRecyclerItem>>().apply {
-        value = generateHomeRecyclerItems()
+        value = ArrayList()
     }
 
     val homeList: LiveData<ArrayList<HomeRecyclerItem>> = _homeList
@@ -15,20 +15,5 @@ class MainViewModel : ViewModel() {
     fun addRecyclerItem(name: String, code: String) {
         val newItem = HomeRecyclerItem(_homeList.value?.size ?: 0, name, code)
         _homeList.value?.add(newItem)
-    }
-
-    private fun generateHomeRecyclerItems(): ArrayList<HomeRecyclerItem> {
-        // This is a dummy list
-        // TODO: Replace with functionality for retrieving items from a database
-        val list = ArrayList<HomeRecyclerItem>()
-        for (i in 0 until 100) {
-            val item = HomeRecyclerItem(
-                i,
-                "Account $i",
-                "000-000"
-            )
-            list += item
-        }
-        return list
     }
 }
