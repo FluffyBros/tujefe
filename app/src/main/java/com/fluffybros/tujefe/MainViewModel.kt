@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.fluffybros.tujefe.ui.home.HomeRecyclerItem
 
 class MainViewModel : ViewModel() {
-    private val _homeList = MutableLiveData<List<HomeRecyclerItem>>(ArrayList())
+    private val _homeList = MutableLiveData<List<HomeRecyclerItem>>(listOf())
 
     val homeList: LiveData<List<HomeRecyclerItem>> = _homeList
 
