@@ -16,7 +16,7 @@ class ManualAddFragment : Fragment(R.layout.fragment_manual_add) {
         val binding = FragmentManualAddBinding.bind(view)
 
         binding.manualAddButton.setOnClickListener {
-            mainViewModel.addRecyclerItem("NEW ACCOUNT", "444444")
+            mainViewModel.addRecyclerItem(binding.nameField.editText?.text.toString(), binding.setupKeyField.editText?.text.toString())
         }
     }
 }
