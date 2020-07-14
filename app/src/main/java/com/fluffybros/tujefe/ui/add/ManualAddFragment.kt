@@ -20,7 +20,7 @@ class ManualAddFragment : Fragment(R.layout.fragment_manual_add) {
 
         binding.manualAddButton.setOnClickListener {
             mainViewModel.addRecyclerItem(binding.nameField.editText?.text.toString(), binding.setupKeyField.editText?.text.toString())
-            val imm = ContextCompat.getSystemService(view.context, InputMethodManager::class.java)
+            val imm = ContextCompat.getSystemService(requireContext(), InputMethodManager::class.java)
             imm?.hideSoftInputFromWindow(view.windowToken, 0)
             findNavController().navigate(R.id.navigation_home)
         }
