@@ -1,9 +1,9 @@
 package com.fluffybros.tujefe.ui.add
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -20,9 +20,8 @@ class ManualAddFragment : Fragment(R.layout.fragment_manual_add) {
 
         binding.manualAddButton.setOnClickListener {
             mainViewModel.addRecyclerItem(binding.nameField.editText?.text.toString(), binding.setupKeyField.editText?.text.toString())
-            val imm: InputMethodManager =
-                requireContext().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(view.windowToken, 0)
+            val imm = ContextCompat.getSystemService(view.context, InputMethodManager::class.java)
+            imm?.hideSoftInputFromWindow(view.windowToken, 0)
             findNavController().navigate(R.id.navigation_home)
         }
     }
