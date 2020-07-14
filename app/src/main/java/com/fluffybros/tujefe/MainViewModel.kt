@@ -6,14 +6,14 @@ import androidx.lifecycle.ViewModel
 import com.fluffybros.tujefe.ui.home.HomeRecyclerItem
 
 class MainViewModel : ViewModel() {
-    private val _homeList = MutableLiveData<ArrayList<HomeRecyclerItem>>().apply {
+    private val _homeList = MutableLiveData<List<HomeRecyclerItem>>().apply {
         value = ArrayList()
     }
 
-    val homeList: LiveData<ArrayList<HomeRecyclerItem>> = _homeList
+    val homeList: LiveData<List<HomeRecyclerItem>> = _homeList
 
     fun addRecyclerItem(name: String, code: String) {
         val newItem = HomeRecyclerItem(_homeList.value?.size ?: 0, name, code)
-        _homeList.value?.add(newItem)
+        _homeList.value = _homeList.value?.plus(newItem)
     }
 }
