@@ -1,5 +1,6 @@
 package com.fluffybros.tujefe.db
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -8,7 +9,7 @@ import androidx.room.Query
 @Dao
 interface AccountDAO {
     @Query("SELECT * from accountTable ORDER BY name ASC")
-    fun getAlphabetizedWords(): List<AccountTable>
+    fun getAlphabetizedAccounts(): LiveData<List<AccountTable>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(account: AccountTable)
