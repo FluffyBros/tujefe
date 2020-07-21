@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.fluffybros.tujefe.databinding.HomeRecyclerItemBinding
+import com.fluffybros.tujefe.db.HomeRecyclerItem
 
 class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>) : RecyclerView.Adapter<HomeRecyclerAdapter.HomeViewHolder>() {
 
