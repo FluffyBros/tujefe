@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
-    private val repository : HomeRepository
+    private val repository: HomeRepository
     val homeList: LiveData<List<HomeRecyclerItem>>
 
     init {
@@ -29,7 +29,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         insert(newItem)
     }
 
-    private fun insert(newItem: HomeRecyclerItem) = viewModelScope.launch(Dispatchers.IO){
+    private fun insert(newItem: HomeRecyclerItem) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(newItem)
     }
 }
