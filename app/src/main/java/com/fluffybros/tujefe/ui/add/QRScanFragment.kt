@@ -42,5 +42,4 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
         codeScanner.releaseResources()
         super.onPause()
     }
-
 }
