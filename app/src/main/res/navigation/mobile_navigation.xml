@@ -27,6 +27,11 @@
         android:id="@+id/navigation_manual_add"
         android:label="@string/title_manual_add"
         android:name="com.fluffybros.tujefe.ui.add.ManualAddFragment"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_manual_add" />
+
+    <fragment
+        android:id="@+id/navigation_qr_scan"
+        android:name="com.fluffybros.tujefe.ui.add.QRScanFragment"
+        tools:layout="@layout/fragment_qr_scan" />
 
 </navigation>

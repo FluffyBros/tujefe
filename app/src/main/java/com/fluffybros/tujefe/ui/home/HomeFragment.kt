@@ -39,5 +39,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.addKeyButton.setOnClickListener {
             findNavController().navigate(R.id.navigation_manual_add)
         }
+        binding.addQrButton.setOnClickListener {
+            findNavController().navigate(R.id.navigation_qr_scan)
+        }
     }
 }
