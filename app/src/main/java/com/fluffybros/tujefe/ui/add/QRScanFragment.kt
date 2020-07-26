@@ -24,15 +24,7 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
         when (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)) {
              PackageManager.PERMISSION_GRANTED -> {
                 // You can use the API that requires the permission.
-                try {
-                    val intent = Intent("com.google.zxing.client.android.SCAN")
-                    intent.putExtra("SCAN_MODE", "QR_CODE_MODE") // "PRODUCT_MODE for bar codes
-                    startActivityForResult(intent, 0)
-                } catch (e: Exception) {
-                    val marketUri: Uri = Uri.parse("market://details?id=com.google.zxing.client.android")
-                    val marketIntent = Intent(Intent.ACTION_VIEW, marketUri)
-                    startActivity(marketIntent)
-                }
+                scan()
             }
             else -> {
                 // You can directly ask for the permission.
@@ -42,5 +34,36 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
             }
         }
 
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int,
+                                            permissions: Array<String>, grantResults: IntArray) {
+        when (requestCode) {
+            0 -> {
+                // If request is cancelled, the result arrays are empty.
+                if ((grantResults.isNotEmpty() &&
+                            grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    // Permission is granted. Continue the action or workflow
+                    // in your app.
+                    scan()
+                }
+                return
+            }
+            else -> {
+                // Ignore all other requests.
+            }
+        }
+    }
+
+    private fun scan(){
+        try {
+            val intent = Intent("com.google.zxing.client.android.SCAN")
+            intent.putExtra("SCAN_MODE", "QR_CODE_MODE") // "PRODUCT_MODE for bar codes
+            startActivityForResult(intent, 0)
+        } catch (e: Exception) {
+            val marketUri: Uri = Uri.parse("market://details?id=com.google.zxing.client.android")
+            val marketIntent = Intent(Intent.ACTION_VIEW, marketUri)
+            startActivity(marketIntent)
+        }
     }
 }
