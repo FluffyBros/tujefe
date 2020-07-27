@@ -9,6 +9,7 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.fluffybros.tujefe.MainViewModel
 import com.fluffybros.tujefe.R
 import com.fluffybros.tujefe.databinding.FragmentQrScanBinding
@@ -60,9 +61,10 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
             intent.putExtra("SCAN_MODE", "QR_CODE_MODE") // "PRODUCT_MODE for bar codes
             startActivityForResult(intent, 0)
         } catch (e: Exception) {
-            val marketUri: Uri = Uri.parse("market://details?id=com.google.zxing.client.android")
-            val marketIntent = Intent(Intent.ACTION_VIEW, marketUri)
-            startActivity(marketIntent)
+            //val marketUri: Uri = Uri.parse("market://details?id=com.google.zxing.client.android")
+            //val marketIntent = Intent(Intent.ACTION_VIEW, marketUri)
+//            startActivity(marketIntent)
+            findNavController().navigate(R.id.navigation_home)
         }
     }
 }
