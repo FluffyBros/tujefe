@@ -13,7 +13,6 @@ import com.fluffybros.tujefe.MainViewModel
 import com.fluffybros.tujefe.R
 import com.fluffybros.tujefe.databinding.FragmentQrScanBinding
 
-
 class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
     private val mainViewModel: MainViewModel by activityViewModels()
 
@@ -67,3 +66,4 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
         }
     }
 }
+
