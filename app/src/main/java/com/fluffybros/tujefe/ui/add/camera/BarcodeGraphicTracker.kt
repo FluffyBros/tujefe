@@ -6,7 +6,6 @@ import com.google.android.gms.vision.Detector.Detections
 import com.google.android.gms.vision.Tracker
 import com.google.android.gms.vision.barcode.Barcode
 
-
 /**
  * Generic tracker which is used for tracking or reading a barcode (and can really be used for
  * any type of item).  This is used to receive newly detected items, add a graphical representation
@@ -14,7 +13,8 @@ import com.google.android.gms.vision.barcode.Barcode
  * goes away.
  */
 class BarcodeGraphicTracker internal constructor(
-    private val mOverlay: GraphicOverlay<BarcodeGraphic>, private val mGraphic: BarcodeGraphic,
+    private val mOverlay: GraphicOverlay<BarcodeGraphic>,
+    private val mGraphic: BarcodeGraphic,
     context: Context?
 ) :
     Tracker<Barcode?>() {

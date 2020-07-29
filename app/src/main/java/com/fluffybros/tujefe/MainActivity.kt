@@ -11,7 +11,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,14 +29,14 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
-     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 0) {
             if (resultCode == Activity.RESULT_OK) {
                 val contents = data?.getStringExtra("SCAN_RESULT")
             }
             if (resultCode == RESULT_CANCELLED) {
-                //handle cancel
+                // handle cancel
             }
         }
     }

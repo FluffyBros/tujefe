@@ -12,10 +12,13 @@ import androidx.navigation.fragment.findNavController
 import com.fluffybros.tujefe.MainViewModel
 import com.fluffybros.tujefe.R
 import com.fluffybros.tujefe.databinding.FragmentQrScanBinding
-import com.fluffybros.tujefe.ui.add.camera.*
+import com.fluffybros.tujefe.ui.add.camera.BarcodeGraphic
+import com.fluffybros.tujefe.ui.add.camera.BarcodeTrackerFactory
+import com.fluffybros.tujefe.ui.add.camera.CameraSource
+import com.fluffybros.tujefe.ui.add.camera.CameraSourcePreview
+import com.fluffybros.tujefe.ui.add.camera.GraphicOverlay
 import com.google.android.gms.vision.MultiProcessor
 import com.google.android.gms.vision.barcode.BarcodeDetector
-
 
 class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
     private val mainViewModel: MainViewModel by activityViewModels()
@@ -31,7 +34,7 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
         mPreview = binding.preview
 
         when (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)) {
-             PackageManager.PERMISSION_GRANTED -> {
+            PackageManager.PERMISSION_GRANTED -> {
                 // You can use the API that requires the permission.
                 scan()
             }
@@ -39,19 +42,25 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
                 // You can directly ask for the permission.
                 requestPermissions(
                     arrayOf(Manifest.permission.CAMERA),
-                    0)
+                    0
+                )
             }
         }
-
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int,
-                                            permissions: Array<String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
         when (requestCode) {
             0 -> {
                 // If request is cancelled, the result arrays are empty.
-                if ((grantResults.isNotEmpty() &&
-                            grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                if ((
+                    grantResults.isNotEmpty() &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED
+                    )
+                ) {
                     // Permission is granted. Continue the action or workflow
                     // in your app.
                     scan()
@@ -65,7 +74,7 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
         }
     }
 
-    private fun scan(){
+    private fun scan() {
         try {
             val barcodeDetector = BarcodeDetector.Builder(context).build()
             val barcodeFactory = BarcodeTrackerFactory(mGraphicOverlay, requireContext())
@@ -80,7 +89,8 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
             if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(
                     arrayOf(Manifest.permission.CAMERA),
-                    0)
+                    0
+                )
                 return
             }
             mPreview.start(mCameraSource, mGraphicOverlay)
@@ -89,4 +99,3 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
         }
     }
 }
-

@@ -7,7 +7,6 @@ import android.graphics.RectF
 import com.fluffybros.tujefe.ui.add.camera.GraphicOverlay.Graphic
 import com.google.android.gms.vision.barcode.Barcode
 
-
 /**
  * Graphic instance for rendering barcode position, size, and ID within an associated graphic
  * overlay view.
