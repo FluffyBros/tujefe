@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -12,15 +13,13 @@ import androidx.navigation.fragment.findNavController
 import com.fluffybros.tujefe.MainViewModel
 import com.fluffybros.tujefe.R
 import com.fluffybros.tujefe.databinding.FragmentQrScanBinding
-import com.fluffybros.tujefe.ui.add.camera.BarcodeGraphic
-import com.fluffybros.tujefe.ui.add.camera.BarcodeTrackerFactory
-import com.fluffybros.tujefe.ui.add.camera.CameraSource
-import com.fluffybros.tujefe.ui.add.camera.CameraSourcePreview
-import com.fluffybros.tujefe.ui.add.camera.GraphicOverlay
+import com.fluffybros.tujefe.ui.add.camera.*
 import com.google.android.gms.vision.MultiProcessor
+import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
 
-class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
+
+class QRScanFragment : Fragment(R.layout.fragment_qr_scan), BarcodeGraphicTracker.BarcodeUpdateListener {
     private val mainViewModel: MainViewModel by activityViewModels()
     private var mCameraSource: CameraSource? = null
     private lateinit var mPreview: CameraSourcePreview
@@ -97,5 +96,10 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
         } catch (e: Exception) {
             findNavController().navigate(R.id.navigation_home)
         }
+    }
+
+    override fun onBarcodeDetected(barcode: Barcode?) {
+        //do something with barcode data returned
+        Toast.makeText(context,barcode?.displayValue, Toast.LENGTH_SHORT).show()
     }
 }
