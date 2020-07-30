@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -13,11 +12,13 @@ import androidx.navigation.fragment.findNavController
 import com.fluffybros.tujefe.MainViewModel
 import com.fluffybros.tujefe.R
 import com.fluffybros.tujefe.databinding.FragmentQrScanBinding
-import com.fluffybros.tujefe.ui.add.camera.*
+import com.fluffybros.tujefe.ui.add.camera.BarcodeGraphic
+import com.fluffybros.tujefe.ui.add.camera.BarcodeTrackerFactory
+import com.fluffybros.tujefe.ui.add.camera.CameraSource
+import com.fluffybros.tujefe.ui.add.camera.CameraSourcePreview
+import com.fluffybros.tujefe.ui.add.camera.GraphicOverlay
 import com.google.android.gms.vision.MultiProcessor
-import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
-
 
 class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
     private val mainViewModel: MainViewModel by activityViewModels()
