@@ -44,19 +44,18 @@ class MainActivity : AppCompatActivity(), BarcodeGraphicTracker.BarcodeUpdateLis
             val codeStart = barcode.displayValue.findAnyOf(secretSearch, 0, false)
             val secretEndSearch = ArrayList<String>()
             secretEndSearch.add("&")
-            val codeEnd = barcode.displayValue.findAnyOf(secretEndSearch, codeStart?.first ?: 0, false )
-            val codeIndices = IntRange(codeStart?.first?.plus(7)?:0, codeEnd?.first?.minus(1)?:barcode.displayValue.lastIndex)
-            val code = barcode.displayValue.substring(codeIndices )
+            val codeEnd = barcode.displayValue.findAnyOf(secretEndSearch, codeStart?.first ?: 0, false)
+            val codeIndices = IntRange(codeStart?.first?.plus(7) ?: 0, codeEnd?.first?.minus(1) ?: barcode.displayValue.lastIndex)
+            val code = barcode.displayValue.substring(codeIndices)
 
             val issuerSearch = ArrayList<String>()
             issuerSearch.add("issuer=")
             val nameStart = barcode.displayValue.findAnyOf(issuerSearch, 0, false)
             val issuerEndSearch = ArrayList<String>()
             issuerEndSearch.add("&")
-            val nameEnd = barcode.displayValue.findAnyOf(issuerEndSearch, nameStart?.first ?: 0, false )
-            val nameIndices = IntRange(nameStart?.first?.plus(7)?:0, nameEnd?.first?.minus(1)?:barcode.displayValue.lastIndex)
-            val name = barcode.displayValue.substring(nameIndices )
-
+            val nameEnd = barcode.displayValue.findAnyOf(issuerEndSearch, nameStart?.first ?: 0, false)
+            val nameIndices = IntRange(nameStart?.first?.plus(7) ?: 0, nameEnd?.first?.minus(1) ?: barcode.displayValue.lastIndex)
+            val name = barcode.displayValue.substring(nameIndices)
 
             mainViewModel.addRecyclerItem(name, code)
             runOnUiThread { navController.navigate(R.id.navigation_home) }
