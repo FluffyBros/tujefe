@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), BarcodeGraphicTracker.BarcodeUpdateLis
             Log.d("Barcode-Reader", barcode.displayValue)
             Log.d("Barcode-Reader", barcode.format.toString())
 
-            if(barcode.displayValue.contains("secret=")) {
+            if (barcode.displayValue.contains("secret=")) {
                 val secretSearch = ArrayList<String>()
                 secretSearch.add("secret=")
                 val codeStart = barcode.displayValue.findAnyOf(secretSearch, 0, false)
@@ -67,7 +67,6 @@ class MainActivity : AppCompatActivity(), BarcodeGraphicTracker.BarcodeUpdateLis
                 val name = barcode.displayValue.substring(nameIndices)
 
                 mainViewModel.addRecyclerItem(name, code)
-
             } else {
                 Log.w("onBarcodeDetected", "This barcode doesn't have a secret")
             }
