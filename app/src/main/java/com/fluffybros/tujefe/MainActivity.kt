@@ -4,14 +4,18 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.telephony.MbmsDownloadSession.RESULT_CANCELLED
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.fluffybros.tujefe.ui.add.camera.BarcodeGraphicTracker
+import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), BarcodeGraphicTracker.BarcodeUpdateListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +42,13 @@ class MainActivity : AppCompatActivity() {
             if (resultCode == RESULT_CANCELLED) {
                 // handle cancel
             }
+        }
+    }
+
+    override fun onBarcodeDetected(barcode: Barcode?) {
+        //do something with barcode data returned
+        if (barcode != null) {
+            Log.d("Barcode-Reader", barcode.displayValue)
         }
     }
 }

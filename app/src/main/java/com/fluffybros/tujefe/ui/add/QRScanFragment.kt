@@ -19,7 +19,7 @@ import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
 
 
-class QRScanFragment : Fragment(R.layout.fragment_qr_scan), BarcodeGraphicTracker.BarcodeUpdateListener {
+class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
     private val mainViewModel: MainViewModel by activityViewModels()
     private var mCameraSource: CameraSource? = null
     private lateinit var mPreview: CameraSourcePreview
@@ -96,10 +96,5 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan), BarcodeGraphicTracke
         } catch (e: Exception) {
             findNavController().navigate(R.id.navigation_home)
         }
-    }
-
-    override fun onBarcodeDetected(barcode: Barcode?) {
-        //do something with barcode data returned
-        Toast.makeText(context,barcode?.displayValue, Toast.LENGTH_SHORT).show()
     }
 }
