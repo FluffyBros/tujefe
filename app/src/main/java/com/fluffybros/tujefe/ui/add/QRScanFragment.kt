@@ -8,6 +8,7 @@ import android.provider.MediaStore
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.fluffybros.tujefe.R
 import com.fluffybros.tujefe.databinding.FragmentQrScanBinding
 
@@ -43,5 +44,29 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
         }
     }
 
-    
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
+            0 -> {
+                // If request is cancelled, the result arrays are empty.
+                if ((
+                            grantResults.isNotEmpty() &&
+                                    grantResults[0] == PackageManager.PERMISSION_GRANTED
+                            )
+                ) {
+                    // Permission is granted. Continue the action or workflow
+                    // in your app.
+                    dispatchTakePictureIntent()
+                }
+                return
+            }
+            else -> {
+                // Ignore all other requests.
+                findNavController().navigate(R.id.navigation_home)
+            }
+        }
+    }
 }
