@@ -17,7 +17,7 @@ import com.fluffybros.tujefe.databinding.FragmentQrScanBinding
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
 
 class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
     private val REQUEST_IMAGE_CAPTURE = 1
@@ -45,7 +45,7 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
     }
 
     private fun dispatchTakePictureIntent() {
-        if(requireActivity().packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {
+        if (requireActivity().packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {
             Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
                 // Ensure that there's a camera activity to handle the intent
                 takePictureIntent.resolveActivity(requireActivity().packageManager)?.also {
@@ -99,9 +99,9 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
             0 -> {
                 // If request is cancelled, the result arrays are empty.
                 if ((
-                            grantResults.isNotEmpty() &&
-                                    grantResults[0] == PackageManager.PERMISSION_GRANTED
-                            )
+                    grantResults.isNotEmpty() &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED
+                    )
                 ) {
                     // Permission is granted. Continue the action or workflow
                     // in your app.
