@@ -17,4 +17,6 @@
     <string name="manual_add_button">Add</string>
     <string name="title_manual_add">Add Manually</string>
     <string name="name_field">Account Name</string>
+    <string name="cameraButton_text">Scan Using Camera</string>
+    <string name="screenshotButton_text">Scan a Photo from Gallery</string>
 </resources>
