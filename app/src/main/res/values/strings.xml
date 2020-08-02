@@ -19,4 +19,5 @@
     <string name="name_field">Account Name</string>
     <string name="cameraButton_text">Scan Using Camera</string>
     <string name="screenshotButton_text">Scan a Photo from Gallery</string>
+    <string name="title_qr_scan">Scan a QR Code</string>
 </resources>
