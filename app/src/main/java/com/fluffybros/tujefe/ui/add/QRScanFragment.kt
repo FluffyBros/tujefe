@@ -16,8 +16,7 @@ import com.fluffybros.tujefe.R
 import com.fluffybros.tujefe.databinding.FragmentQrScanBinding
 import java.io.File
 import java.io.IOException
-import java.text.SimpleDateFormat
-import java.util.Date
+import java.text.DateFormat.getDateTimeInstance
 
 class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
     private val REQUEST_IMAGE_CAPTURE = 1
@@ -78,10 +77,9 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
     @Throws(IOException::class)
     private fun createImageFile(): File {
         // Create an image file name
-        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
         val storageDir: File? = requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         return File.createTempFile(
-            "JPEG_${timeStamp}_", /* prefix */
+            "JPEG_${getDateTimeInstance()}_", /* prefix */
             ".jpg", /* suffix */
             storageDir /* directory */
         ).apply {
