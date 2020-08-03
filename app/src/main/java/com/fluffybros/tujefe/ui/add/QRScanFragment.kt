@@ -123,21 +123,27 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
-            decodeBitmap(imageBitmap)
+            val code = decodeBitmap(imageBitmap)
+            if(code == null){
+                //TODO: let user know nothing was detected
+                return
+            }
+            //Parse the data
+
 //            imageView.setImageBitmap(imageBitmap)
         }
     }
 
-    private fun decodeBitmap(bitmap: Bitmap){
+    private fun decodeBitmap(bitmap: Bitmap): Barcode?{
         val detector = BarcodeDetector.Builder(context)
             .setBarcodeFormats(Barcode.DATA_MATRIX or Barcode.QR_CODE)
             .build()
         if (!detector.isOperational) {
             // TODO: tell user that something went wrong
-            return
+            return null
         }
         val frame: Frame = Frame.Builder().setBitmap(bitmap).build()
         val barcodes = detector.detect(frame)
-        val thisCode = barcodes.valueAt(0)
+        return barcodes.valueAt(0)
     }
 }
