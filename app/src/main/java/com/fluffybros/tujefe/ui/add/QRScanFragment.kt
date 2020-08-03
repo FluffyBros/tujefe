@@ -16,9 +16,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.fluffybros.tujefe.R
 import com.fluffybros.tujefe.databinding.FragmentQrScanBinding
+import com.google.android.gms.vision.Frame
+import com.google.android.gms.vision.barcode.Barcode
+import com.google.android.gms.vision.barcode.BarcodeDetector
 import java.io.File
 import java.io.IOException
 import java.text.DateFormat.getDateTimeInstance
+
 
 class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
     private val REQUEST_IMAGE_CAPTURE = 1
@@ -119,7 +123,21 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
+            decodeBitmap(imageBitmap)
 //            imageView.setImageBitmap(imageBitmap)
         }
+    }
+
+    private fun decodeBitmap(bitmap: Bitmap){
+        val detector = BarcodeDetector.Builder(context)
+            .setBarcodeFormats(Barcode.DATA_MATRIX or Barcode.QR_CODE)
+            .build()
+        if (!detector.isOperational) {
+            // TODO: tell user that something went wrong
+            return
+        }
+        val frame: Frame = Frame.Builder().setBitmap(bitmap).build()
+        val barcodes = detector.detect(frame)
+        val thisCode = barcodes.valueAt(0)
     }
 }
