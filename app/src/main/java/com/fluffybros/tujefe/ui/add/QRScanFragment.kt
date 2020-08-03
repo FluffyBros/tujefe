@@ -1,8 +1,10 @@
 package com.fluffybros.tujefe.ui.add
 
 import android.Manifest
+import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -111,6 +113,13 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
                 // Ignore all other requests.
                 findNavController().navigate(R.id.navigation_home)
             }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            val imageBitmap = data?.extras?.get("data") as Bitmap
+//            imageView.setImageBitmap(imageBitmap)
         }
     }
 }
