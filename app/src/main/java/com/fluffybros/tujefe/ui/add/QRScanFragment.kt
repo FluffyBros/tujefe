@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
@@ -48,34 +49,45 @@ class QRScanFragment : Fragment(R.layout.fragment_qr_scan) {
     }
 
     private fun dispatchTakePictureIntent() {
-        if (requireActivity().packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {
-            Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
-                // Ensure that there's a camera activity to handle the intent
-                takePictureIntent.resolveActivity(requireActivity().packageManager)?.also {
-                    // Create the File where the photo should go
-                    val photoFile: File? = try {
-                        createImageFile()
-                    } catch (ex: IOException) {
-                        // TODO: handle errors creating file
-                        null
-                    }
-                    // Continue only if the File was successfully created
-                    photoFile?.also {
-                        val photoURI: Uri = FileProvider.getUriForFile(
-                            requireContext(),
-                            "com.example.android.fileprovider",
-                            it
-                        )
-                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-                        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
-                    }
-                }
-            }
-        } else {
-            findNavController().navigate(R.id.navigation_home)
-            // TODO: Make some notification for the user to let them know that their device
-            // doesn't have a camera.
+        val photoFile: File? = createImageFile()
+        // Continue only if the File was successfully created
+        if(photoFile == null){
+            Log.w("breh", "photoFile is null")
+            return
         }
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT, photoFile.absolutePath)
+        startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
+//        intent.resolveActivity(requireActivity().packageManager)
+
+
+//        if (requireActivity().packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {
+//            Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+//                // Ensure that there's a camera activity to handle the intent
+//                takePictureIntent.resolveActivity(requireActivity().packageManager)?.also {
+//                    // Create the File where the photo should go
+//                    val photoFile: File? = try {
+//                        createImageFile()
+//                    } catch (ex: IOException) {
+//                        // TODO: handle errors creating file
+//                        null
+//                    }
+//                    // Continue only if the File was successfully created
+//                    photoFile?.also {
+//                        val photoURI: Uri = FileProvider.getUriForFile(
+//                            requireContext(),
+//                            "com.example.android.fileprovider",
+//                            it
+//                        )
+//                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+//                        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+//                    }
+//                }
+//            }
+//        } else {
+//            findNavController().navigate(R.id.navigation_home)
+//            // TODO: Make some notification for the user to let them know that their device
+//            // doesn't have a camera.
+//        }
     }
 
     @Throws(IOException::class)
