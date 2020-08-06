@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:text="@string/cameraButton_text"
         style="?android:attr/buttonBarButtonStyle" />
-    
+
     <Button
         android:id="@+id/screenshotButton"
         android:layout_width="wrap_content"
