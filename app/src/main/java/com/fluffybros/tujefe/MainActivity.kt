@@ -3,12 +3,10 @@ package com.fluffybros.tujefe
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
-import android.net.Uri
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.content.FileProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -17,7 +15,7 @@ import com.google.android.gms.vision.Frame
 import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.io.File
+
 
 class MainActivity : AppCompatActivity() {
     private val mainViewModel: MainViewModel by viewModels()
@@ -40,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode==65537) {
+        if (resultCode == Activity.RESULT_OK) {
 //            val photoPath = data?.extras?.get("data") as String
 //            val photoFile = File(photoPath)
 //            val photoURI: Uri = FileProvider.getUriForFile(
@@ -48,6 +46,7 @@ class MainActivity : AppCompatActivity() {
 //                "com.example.android.fileprovider",
 //                photoFile
 //            )
+//            val imageBitmap = BitmapFactory.decodeFile(photoPath)
             val imageBitmap = data?.extras?.get("data") as Bitmap
             val barcode = decodeBitmap(imageBitmap)
             if(barcode == null){
