@@ -3,7 +3,6 @@ package com.fluffybros.tujefe
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +14,6 @@ import com.google.android.gms.vision.Frame
 import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
 import com.google.android.material.bottomnavigation.BottomNavigationView
-
 
 class MainActivity : AppCompatActivity() {
     private val mainViewModel: MainViewModel by viewModels()
@@ -39,21 +37,13 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
-//            val photoPath = data?.extras?.get("data") as String
-//            val photoFile = File(photoPath)
-//            val photoURI: Uri = FileProvider.getUriForFile(
-//                this,
-//                "com.example.android.fileprovider",
-//                photoFile
-//            )
-//            val imageBitmap = BitmapFactory.decodeFile(photoPath)
             val imageBitmap = data?.extras?.get("data") as Bitmap
             val barcode = decodeBitmap(imageBitmap)
-            if(barcode == null){
-                //TODO: let user know nothing was detected
+            if (barcode == null) {
+                // TODO: let user know nothing was detected
                 return
             }
-            //Parse the data
+            // Parse the data
             if (barcode.displayValue.contains("secret=")) {
                 val secretSearch = ArrayList<String>()
                 secretSearch.add("secret=")
@@ -83,11 +73,10 @@ class MainActivity : AppCompatActivity() {
 
                 mainViewModel.addRecyclerItem(name, code)
             }
-//            imageView.setImageBitmap(imageBitmap)
         }
     }
 
-    private fun decodeBitmap(bitmap: Bitmap): Barcode?{
+    private fun decodeBitmap(bitmap: Bitmap): Barcode? {
         val detector = BarcodeDetector.Builder(this)
             .setBarcodeFormats(Barcode.DATA_MATRIX or Barcode.QR_CODE)
             .build()
