@@ -10,7 +10,7 @@ class HomeRepository(private val homeRecyclerDao: HomeRecyclerDao) {
         homeRecyclerDao.insert(homeRecyclerItem)
     }
 
-    suspend fun delete(id: Int){
-        homeRecyclerDao.delete(id)
+    suspend fun delete(homeRecyclerItem: HomeRecyclerItem){
+        homeRecyclerDao.delete(homeRecyclerItem)
     }
 }
