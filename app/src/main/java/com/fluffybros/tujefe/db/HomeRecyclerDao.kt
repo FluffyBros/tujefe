@@ -16,5 +16,8 @@ interface HomeRecyclerDao {
     suspend fun insert(homeRecyclerItem: HomeRecyclerItem)
 
     @Query("DELETE FROM home_recycler_item")
+    suspend fun delete(id: Int)
+
+    @Query("DELETE FROM home_recycler_item")
     suspend fun deleteAll()
 }
