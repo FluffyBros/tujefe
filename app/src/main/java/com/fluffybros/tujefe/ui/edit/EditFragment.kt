@@ -15,8 +15,8 @@ class EditFragment(val account_id: Int): Fragment(R.layout.fragment_edit) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentEditBinding.bind(view)
 
-        binding.deleteButton2.setOnClickListener {
-            
+        binding.deleteButton.setOnClickListener {
+
         }
     }
 }
