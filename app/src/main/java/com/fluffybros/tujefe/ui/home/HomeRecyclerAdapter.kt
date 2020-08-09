@@ -1,17 +1,13 @@
 package com.fluffybros.tujefe.ui.home
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.fluffybros.tujefe.MainActivity
 import com.fluffybros.tujefe.R
 import com.fluffybros.tujefe.databinding.HomeRecyclerItemBinding
 import com.fluffybros.tujefe.db.HomeRecyclerItem
 import com.fluffybros.tujefe.ui.edit.EditFragment
-import kotlinx.android.synthetic.main.fragment_container.view.*
 
 class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>, private val activity: FragmentActivity) : RecyclerView.Adapter<HomeRecyclerAdapter.HomeViewHolder>() {
 
