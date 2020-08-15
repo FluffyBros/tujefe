@@ -20,4 +20,5 @@
     <string name="renameHint">New Account Name</string>
     <string name="saveEditButton">Save</string>
     <string name="deleteButton">Delete Account</string>
+    <string name="title_edit">Edit Account</string>
 </resources>
