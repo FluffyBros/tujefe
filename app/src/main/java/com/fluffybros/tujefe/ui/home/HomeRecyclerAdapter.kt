@@ -27,10 +27,8 @@ class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>, private 
         val currentItem = itemList[position]
         holder.binding.code.text = currentItem.code
         holder.binding.name.text = currentItem.name
-        val safeArgs: EditFragmentArgs by activity.navArgs()
-        val accountNumber = safeArgs.accountNumber
         holder.binding.editButton.setOnClickListener {
-            val action = HomeFragmentDirections.actionNavigationHomeToNavigationEdit(accountNumber)
+            val action = HomeFragmentDirections.actionNavigationHomeToNavigationEdit(position)
             holder.itemView.findNavController().navigate(action)
         }
     }

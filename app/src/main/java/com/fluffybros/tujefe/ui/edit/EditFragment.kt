@@ -8,7 +8,7 @@ import com.fluffybros.tujefe.MainViewModel
 import com.fluffybros.tujefe.R
 import com.fluffybros.tujefe.databinding.FragmentEditBinding
 
-class EditFragment(val account_id: Int): Fragment(R.layout.fragment_edit) {
+class EditFragment: Fragment(R.layout.fragment_edit) {
     private val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
