@@ -29,7 +29,7 @@ class EditFragment : Fragment(R.layout.fragment_edit) {
         binding.saveEditButton.setOnClickListener {
             val item = mainViewModel.homeList.value?.get(accountPosition)
             if (item != null) {
-                mainViewModel.rename(item.name, item.id)
+                mainViewModel.rename(binding.renameInputText.text.toString(), item.id)
             }
             findNavController().navigate(R.id.navigation_home)
         }
