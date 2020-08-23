@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.fluffybros.tujefe.databinding.HomeRecyclerItemBinding
 import com.fluffybros.tujefe.db.HomeRecyclerItem
 
-class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>, private val activity: FragmentActivity) : RecyclerView.Adapter<HomeRecyclerAdapter.HomeViewHolder>() {
+class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>) : RecyclerView.Adapter<HomeRecyclerAdapter.HomeViewHolder>() {
 
     class HomeViewHolder(val binding: HomeRecyclerItemBinding) : RecyclerView.ViewHolder(binding.root)
 
