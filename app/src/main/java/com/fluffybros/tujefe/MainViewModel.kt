@@ -33,7 +33,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         repository.insert(newItem)
     }
 
-    fun delete(homeRecyclerItem: HomeRecyclerItem) = viewModelScope.launch(Dispatchers.IO){
+    fun delete(homeRecyclerItem: HomeRecyclerItem) = viewModelScope.launch(Dispatchers.IO) {
         repository.delete(homeRecyclerItem)
     }
 }
