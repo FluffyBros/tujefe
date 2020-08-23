@@ -1,11 +1,7 @@
 package com.fluffybros.tujefe.db
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface HomeRecyclerDao {
@@ -18,6 +14,9 @@ interface HomeRecyclerDao {
 
     @Delete
     suspend fun delete(homeRecyclerItem: HomeRecyclerItem)
+
+    @Update
+    suspend fun edit(homeRecyclerItem: HomeRecyclerItem)
 
     @Query("DELETE FROM home_recycler_item")
     suspend fun deleteAll()
