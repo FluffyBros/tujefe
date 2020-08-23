@@ -20,7 +20,7 @@ class EditFragment : Fragment(R.layout.fragment_edit) {
         val accountPosition = safeArgs.accountNumber
         binding.deleteButton.setOnClickListener {
             val item = mainViewModel.homeList.value?.get(accountPosition)
-            if(item != null){
+            if (item != null) {
                 mainViewModel.delete(item)
             }
             findNavController().navigate(R.id.navigation_home)
