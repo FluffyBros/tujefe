@@ -13,4 +13,8 @@ class HomeRepository(private val homeRecyclerDao: HomeRecyclerDao) {
     suspend fun delete(homeRecyclerItem: HomeRecyclerItem) {
         homeRecyclerDao.delete(homeRecyclerItem)
     }
+
+    suspend fun rename(name: String, id: Int) {
+        homeRecyclerDao.rename(name, id)
+    }
 }
