@@ -12,7 +12,7 @@
         android:layout_margin="@dimen/recycler_item_margin"
         android:text="@string/name"
         app:layout_constraintBottom_toTopOf="@+id/editButton"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/clockIconView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
@@ -47,19 +47,19 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/countDownView"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/clockIconView"
         app:layout_constraintTop_toTopOf="@+id/name" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/clockIconView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/countDownView"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/name"
         app:layout_constraintTop_toTopOf="@+id/name"
