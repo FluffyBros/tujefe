@@ -2,6 +2,7 @@ package com.fluffybros.tujefe.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.fluffybros.tujefe.databinding.HomeRecyclerItemBinding
 import com.fluffybros.tujefe.db.HomeRecyclerItem
@@ -19,6 +20,10 @@ class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>) : Recycl
         val currentItem = itemList[position]
         holder.binding.code.text = currentItem.code
         holder.binding.name.text = currentItem.name
+        holder.binding.editButton.setOnClickListener {
+            val action = HomeFragmentDirections.actionNavigationHomeToNavigationEdit(position)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {
