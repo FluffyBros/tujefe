@@ -9,7 +9,9 @@ import androidx.navigation.fragment.navArgs
 import com.fluffybros.tujefe.MainViewModel
 import com.fluffybros.tujefe.R
 import com.fluffybros.tujefe.databinding.FragmentEditBinding
+import kotlinx.coroutines.ObsoleteCoroutinesApi
 
+@ObsoleteCoroutinesApi
 class EditFragment : Fragment(R.layout.fragment_edit) {
     private val mainViewModel: MainViewModel by activityViewModels()
 
