@@ -20,11 +20,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         homeList = repository.allHomeRecyclerItems
     }
 
-    fun addRecyclerItem(name: String, code: String) {
+    fun addRecyclerItem(name: String, secret: String) {
         val newItem = HomeRecyclerItem(
             homeList.value?.size ?: 0,
             name,
-            code
+            secret
         )
         insert(newItem)
     }

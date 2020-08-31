@@ -18,7 +18,7 @@ class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>) : Recycl
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val currentItem = itemList[position]
-        holder.binding.code.text = currentItem.code
+        holder.binding.secret.text = currentItem.secret
         holder.binding.name.text = currentItem.name
         holder.binding.editButton.setOnClickListener {
             val action = HomeFragmentDirections.actionNavigationHomeToNavigationEdit(position)
