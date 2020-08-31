@@ -30,6 +30,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             for (event in tickerChannel) {
                 val currentTime = LocalDateTime.now()
                 Log.d("yo", currentTime.toString())
+                for(item in homeList.value?: listOf()){
+                    item.count--
+                }
             }
         }
     }
