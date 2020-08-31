@@ -20,6 +20,7 @@ class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>) : Recycl
         val currentItem = itemList[position]
         holder.binding.secret.text = currentItem.secret
         holder.binding.name.text = currentItem.name
+        holder.binding.countDownView.text = currentItem.count.toString()
         holder.binding.editButton.setOnClickListener {
             val action = HomeFragmentDirections.actionNavigationHomeToNavigationEdit(position)
             holder.itemView.findNavController().navigate(action)
