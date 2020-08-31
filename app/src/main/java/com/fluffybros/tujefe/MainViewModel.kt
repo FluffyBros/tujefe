@@ -24,7 +24,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         val newItem = HomeRecyclerItem(
             homeList.value?.size ?: 0,
             name,
-            secret
+            secret,
+            "000-000",
+            30,
+            30
         )
         insert(newItem)
     }
