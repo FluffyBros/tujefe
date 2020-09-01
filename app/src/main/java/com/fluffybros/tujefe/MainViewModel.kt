@@ -4,6 +4,7 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.fluffybros.tujefe.db.HomeRecyclerDatabase
 import com.fluffybros.tujefe.db.HomeRecyclerItem
@@ -31,7 +32,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 val currentTime = LocalDateTime.now()
                 Log.d("yo", currentTime.toString())
                 for(item in homeList.value?: listOf()){
-                    item.count--
+                    item.count.value = item.count.value?.minus(1)
                 }
             }
         }
@@ -42,10 +43,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             homeList.value?.size ?: 0,
             name,
             secret,
-            "000-000",
+            MutableLiveData<String>(),
             30,
-            30
+            MutableLiveData<Int>()
         )
+        newItem.code.value = "000-000"
+        newItem.count.value = newItem.countMax
         insert(newItem)
     }
 
