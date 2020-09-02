@@ -32,7 +32,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 val currentTime = LocalDateTime.now()
                 Log.d("yo", currentTime.toString())
                 for(item in homeList.value?: listOf()){
-                    item.count.value = item.count.value?.minus(1)
+                    item.count.postValue(item.count.value?.minus(1))
                 }
             }
         }

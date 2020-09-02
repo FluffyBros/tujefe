@@ -16,10 +16,12 @@ class Converters {
         @JvmStatic
         fun toLiveDataString(str: String): MutableLiveData<String> {
             val data = MutableLiveData<String>()
-            data.value = str
+            data.postValue(str)
             return data
         }
 
+        @TypeConverter
+        @JvmStatic
         fun fromLiveDataInt(data: MutableLiveData<Int>): Int {
             return data.value ?: -100000
         }
@@ -28,7 +30,7 @@ class Converters {
         @JvmStatic
         fun toLiveDataInt(num: Int): MutableLiveData<Int> {
             val data = MutableLiveData<Int>()
-            data.value = num
+            data.postValue(num)
             return data
         }
     }
