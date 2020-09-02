@@ -4,9 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
-@Database(entities = arrayOf(HomeRecyclerItem::class), version = 1, exportSchema = false)
-public abstract class HomeRecyclerDatabase : RoomDatabase() {
+@Database(entities = [HomeRecyclerItem::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
+abstract class HomeRecyclerDatabase : RoomDatabase() {
 
     abstract fun homeRecyclerDao(): HomeRecyclerDao
 
