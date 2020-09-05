@@ -55,4 +55,5 @@ dependencies {
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
     implementation "com.google.android.material:material:$rootProject.materialVersion"
+    implementation 'io.fusionauth:fusionauth-java-client:1.19.0'
 }
