@@ -30,12 +30,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         val tickerChannel = ticker(delayMillis = 1000)
         GlobalScope.launch {
             for (event in tickerChannel) {
-                val currentTime = LocalDateTime.now()
-                Log.d("yo", currentTime.toString())
                 for(item in homeList.value?: listOf()){
                     if(item.count.value == 0){
                         val codeArray = item.code.value?.toByteArray()
-                        item.code.postValue(TwoFactor.calculateVerificationCode(codeArray, 30))
+                        repository.updateCode(TwoFactor.calculateVerificationCode(codeArray, 30), item.id)
                         item.count.postValue(item.countMax)
                     } else {
                         item.count.postValue(item.count.value?.minus(1))
@@ -54,7 +52,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             30,
             MutableLiveData<Int>()
         )
-        newItem.code.value = "000-000"
+        newItem.code.value = TwoFactor.calculateVerificationCode(secret.toByteArray(), 30)
         newItem.count.value = newItem.countMax
         insert(newItem)
     }
