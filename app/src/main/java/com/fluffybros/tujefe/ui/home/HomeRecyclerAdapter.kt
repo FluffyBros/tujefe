@@ -9,8 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.fluffybros.tujefe.databinding.HomeRecyclerItemBinding
 import com.fluffybros.tujefe.db.HomeRecyclerItem
 
-class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>,
-                          private val viewLifecycleOwner: LifecycleOwner) : RecyclerView.Adapter<HomeRecyclerAdapter.HomeViewHolder>() {
+class HomeRecyclerAdapter(
+    private val itemList: List<HomeRecyclerItem>,
+    private val viewLifecycleOwner: LifecycleOwner
+) : RecyclerView.Adapter<HomeRecyclerAdapter.HomeViewHolder>() {
 
     class HomeViewHolder(val binding: HomeRecyclerItemBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -27,14 +29,14 @@ class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>,
         currentItem.count.observe(
             viewLifecycleOwner,
             Observer {
-                    count ->
+                count ->
                 holder.binding.countDownView.text = count.toString()
             }
         )
         currentItem.code.observe(
             viewLifecycleOwner,
             Observer {
-                    code ->
+                code ->
                 holder.binding.code.text = code.toString()
             }
         )
