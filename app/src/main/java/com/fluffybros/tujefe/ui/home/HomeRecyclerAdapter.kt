@@ -21,7 +21,7 @@ class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>,
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val currentItem = itemList[position]
-        holder.binding.secret.text = currentItem.secret
+        holder.binding.code.text = currentItem.code.value
         holder.binding.name.text = currentItem.name
         holder.binding.countDownView.text = currentItem.count.value.toString()
         currentItem.count.observe(
@@ -35,7 +35,7 @@ class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>,
             viewLifecycleOwner,
             Observer {
                     code ->
-                holder.binding.secret.text = code.toString()
+                holder.binding.code.text = code.toString()
             }
         )
         holder.binding.editButton.setOnClickListener {
