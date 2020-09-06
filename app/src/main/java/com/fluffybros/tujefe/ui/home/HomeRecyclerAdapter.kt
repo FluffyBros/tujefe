@@ -31,6 +31,13 @@ class HomeRecyclerAdapter(private val itemList: List<HomeRecyclerItem>,
                 holder.binding.countDownView.text = count.toString()
             }
         )
+        currentItem.code.observe(
+            viewLifecycleOwner,
+            Observer {
+                    code ->
+                holder.binding.secret.text = code.toString()
+            }
+        )
         holder.binding.editButton.setOnClickListener {
             val action = HomeFragmentDirections.actionNavigationHomeToNavigationEdit(position)
             holder.itemView.findNavController().navigate(action)

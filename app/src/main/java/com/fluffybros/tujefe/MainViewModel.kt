@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.fluffybros.tujefe.db.HomeRecyclerDatabase
 import com.fluffybros.tujefe.db.HomeRecyclerItem
 import com.fluffybros.tujefe.db.HomeRepository
+import com.fluffybros.tujefe.twoFA.TwoFactor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.ObsoleteCoroutinesApi
@@ -33,6 +34,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 Log.d("yo", currentTime.toString())
                 for(item in homeList.value?: listOf()){
                     if(item.count.value == 0){
+                        val codeArray = item.code.value?.toByteArray()
+                        item.code.postValue(TwoFactor.calculateVerificationCode(codeArray, 30))
                         item.count.postValue(item.countMax)
                     } else {
                         item.count.postValue(item.count.value?.minus(1))
