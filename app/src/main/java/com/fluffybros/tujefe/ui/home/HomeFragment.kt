@@ -26,7 +26,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             viewLifecycleOwner,
             Observer {
                 list ->
-                binding.recyclerHome.adapter = HomeRecyclerAdapter(list, requireContext(),viewLifecycleOwner)
+                binding.recyclerHome.adapter = HomeRecyclerAdapter(list, requireContext(), viewLifecycleOwner)
             }
         )
 
