@@ -38,7 +38,7 @@ class HomeRecyclerAdapter(
             holder.itemView.findNavController().navigate(action)
         }
         holder.binding.copyCodeButton.setOnClickListener {
-            val clipboard = getSystemService(context, Class<ClipboardManager>()) as ClipboardManager?
+            val clipboard = getSystemService(context, ClipboardManager::class.java) as ClipboardManager?
             val clip = ClipData.newPlainText("label", "Text to copy")
             clipboard!!.setPrimaryClip(clip)
 
