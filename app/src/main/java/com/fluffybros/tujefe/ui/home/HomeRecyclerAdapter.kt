@@ -5,6 +5,7 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
@@ -56,8 +57,8 @@ class HomeRecyclerAdapter(
         holder.binding.copyCodeButton.setOnClickListener {
             val clipboard = getSystemService(context, ClipboardManager::class.java)
             val clip = ClipData.newPlainText("2FA verification code", currentItem.code.value)
-            clipboard!!.setPrimaryClip(clip)
-
+            requireNotNull(clipboard).setPrimaryClip(clip)
+            Toast.makeText(context, "Verification code copied to clipboard", Toast.LENGTH_SHORT).show()
         }
     }
 
