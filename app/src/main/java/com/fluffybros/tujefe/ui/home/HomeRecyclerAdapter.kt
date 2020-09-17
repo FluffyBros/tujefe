@@ -38,8 +38,8 @@ class HomeRecyclerAdapter(
             holder.itemView.findNavController().navigate(action)
         }
         holder.binding.copyCodeButton.setOnClickListener {
-            val clipboard = getSystemService(context, ClipboardManager::class.java) as ClipboardManager?
-            val clip = ClipData.newPlainText("label", "Text to copy")
+            val clipboard = getSystemService(context, ClipboardManager::class.java)
+            val clip = ClipData.newPlainText("2FA verification code", currentItem.code)
             clipboard!!.setPrimaryClip(clip)
 
         }
