@@ -55,4 +55,6 @@ dependencies {
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
     implementation "com.google.android.material:material:$rootProject.materialVersion"
+
+    implementation 'com.google.android.gms:play-services-vision:20.1.0'
 }
