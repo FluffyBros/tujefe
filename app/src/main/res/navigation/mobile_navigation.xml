@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.fluffybros.tujefe.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_edit"
+            app:destination="@id/navigation_edit" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -34,5 +38,15 @@
         android:label="@string/title_qr_scan"
         android:name="com.fluffybros.tujefe.ui.add.QRScanFragment"
         tools:layout="@layout/fragment_qr_scan" />
+
+    <fragment
+        android:id="@+id/navigation_edit"
+        android:label="@string/title_edit"
+        android:name="com.fluffybros.tujefe.ui.edit.EditFragment"
+        tools:layout="@layout/fragment_edit">
+        <argument
+            android:name="accountNumber"
+            app:argType="integer" />
+    </fragment>
 
 </navigation>

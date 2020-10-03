@@ -32,4 +32,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private fun insert(newItem: HomeRecyclerItem) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(newItem)
     }
+
+    fun delete(homeRecyclerItem: HomeRecyclerItem) = viewModelScope.launch(Dispatchers.IO) {
+        repository.delete(homeRecyclerItem)
+    }
+
+    fun rename(name: String, id: Int) = viewModelScope.launch(Dispatchers.IO) {
+        repository.rename(name, id)
+    }
 }

@@ -17,7 +17,15 @@
     <string name="manual_add_button">Add</string>
     <string name="title_manual_add">Add Manually</string>
     <string name="name_field">Account Name</string>
+
+    <!--QRScan Fragment-->
     <string name="cameraButton_text">Scan Using Camera</string>
     <string name="screenshotButton_text">Scan a Photo from Gallery</string>
     <string name="title_qr_scan">Scan a QR Code</string>
+
+    <!--Edit Fragment-->
+    <string name="renameHint">New Account Name</string>
+    <string name="saveEditButton">Save</string>
+    <string name="deleteButton">Delete Account</string>
+    <string name="title_edit">Edit Account</string>
 </resources>

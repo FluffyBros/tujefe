@@ -6,4 +6,8 @@
     <dimen name="floating_buttons_padding">16dp</dimen>
     <dimen name="floating_buttons_width">55dp</dimen>
     <dimen name="manual_add_form_padding">16dp</dimen>
+    <dimen name="editFragmentTopPadding">64dp</dimen>
+    <dimen name="fragmentEditPadding">32dp</dimen>
+    <dimen name="activity_padding_top">5dp</dimen>
+    <dimen name="recycler_view_size">540dp</dimen>
 </resources>
