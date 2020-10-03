@@ -22,6 +22,9 @@ interface HomeRecyclerDao {
     @Query("UPDATE home_recycler_item SET name = :name WHERE id = :id")
     suspend fun rename(name: String, id: Int)
 
+    @Query("UPDATE home_recycler_item SET code = :newCode WHERE id = :id")
+    suspend fun updateCode(newCode: String, id: Int)
+
     @Query("DELETE FROM home_recycler_item")
     suspend fun deleteAll()
 }

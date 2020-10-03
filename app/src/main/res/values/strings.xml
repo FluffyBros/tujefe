@@ -21,4 +21,5 @@
     <string name="saveEditButton">Save</string>
     <string name="deleteButton">Delete Account</string>
     <string name="title_edit">Edit Account</string>
+    <string name="clockImgDescription">Time remaining before change</string>
 </resources>

@@ -10,7 +10,9 @@ import androidx.navigation.fragment.findNavController
 import com.fluffybros.tujefe.MainViewModel
 import com.fluffybros.tujefe.R
 import com.fluffybros.tujefe.databinding.FragmentManualAddBinding
+import kotlinx.coroutines.ObsoleteCoroutinesApi
 
+@ObsoleteCoroutinesApi
 class ManualAddFragment : Fragment(R.layout.fragment_manual_add) {
     private val mainViewModel: MainViewModel by activityViewModels()
 
