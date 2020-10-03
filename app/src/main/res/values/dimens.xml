@@ -9,4 +9,6 @@
     <dimen name="editFragmentTopPadding">64dp</dimen>
     <dimen name="fragmentEditPadding">32dp</dimen>
     <dimen name="AccountNameWidth">275dp</dimen>
+    <dimen name="activity_padding_top">5dp</dimen>
+    <dimen name="recycler_view_size">540dp</dimen>
 </resources>
